@@ -11,7 +11,10 @@ import com.micky.kotlinproject.domain.model.City
 interface CityPresenter : BasePresenter {
     fun loadData()
 
+    fun selectCity(city:City)
+
     open interface CityView {
         fun onLoadData(cityList:MutableList<City>?)
+        fun onSelectCitySuccess()
     }
 }

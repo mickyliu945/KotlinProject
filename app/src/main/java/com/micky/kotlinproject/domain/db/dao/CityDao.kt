@@ -22,9 +22,6 @@ interface CityDao {
     @Update
     fun update(city:City)
 
-    @Update
-    fun updateAsysssnc(city:City):Flowable<Any>
-
     @Query("SELECT * FROM city where id = :id")
     fun query(id:String):City
 

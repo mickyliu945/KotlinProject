@@ -23,8 +23,8 @@ class CityListActivity : BaseActivity(), CityPresenter.CityView, BaseRVAdapter.O
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_city_list)
 
-        initView()
         cityPresenter = CityPresenterImpl(this, this)
+        initView()
         cityPresenter.loadData()
     }
 
@@ -32,6 +32,7 @@ class CityListActivity : BaseActivity(), CityPresenter.CityView, BaseRVAdapter.O
         rv_city.layoutManager = LinearLayoutManager(this)
         cityAdapter = CityAdapter()
         cityAdapter.onItemClickListener = this
+        cityAdapter.cityPresenter = cityPresenter
         rv_city.adapter = cityAdapter
     }
 
@@ -48,5 +49,9 @@ class CityListActivity : BaseActivity(), CityPresenter.CityView, BaseRVAdapter.O
     override fun onDestroy() {
         super.onDestroy()
         cityPresenter?.onDestory()
+    }
+
+    override fun onSelectCitySuccess() {
+        cityAdapter?.notifyDataSetChanged()
     }
 }

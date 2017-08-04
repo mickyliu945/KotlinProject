@@ -6,10 +6,9 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import com.micky.kotlinproject.R
-import com.micky.kotlinproject.common.utils.applyCommonSchedulers
 import com.micky.kotlinproject.common.utils.inflate
-import com.micky.kotlinproject.domain.db.DBCore
 import com.micky.kotlinproject.domain.model.City
+import com.micky.kotlinproject.presenter.CityPresenter
 
 /**
  * @Description
@@ -19,6 +18,8 @@ import com.micky.kotlinproject.domain.model.City
  */
 class CityAdapter : BaseRVAdapter<City, CityAdapter.ItemViewHolder>() {
 
+    var cityPresenter: CityPresenter? = null
+
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         var city = getItem(position)
         holder.tvName.text = city?.name
@@ -26,8 +27,7 @@ class CityAdapter : BaseRVAdapter<City, CityAdapter.ItemViewHolder>() {
         holder.cbSel.isChecked = city?.selected ?: false
         holder.itemView.setOnClickListener {
             city?.selected = !(city != null && city?.selected)
-//            DBCore.getInstance().database.cityDao().updateAsync(city!!)
-//                    .applyCommonSchedulers().subscribe({notifyDataSetChanged()})
+            cityPresenter?.selectCity(city!!)
         }
     }
 
@@ -39,8 +39,8 @@ class CityAdapter : BaseRVAdapter<City, CityAdapter.ItemViewHolder>() {
     }
 
     inner class ItemViewHolder(itemView: View) : BaseItemViewHolder(itemView) {
-        var tvName:TextView = itemView.findViewById(R.id.tv_name)
-        var tvParentName:TextView = itemView.findViewById(R.id.tv_parent_name)
-        var cbSel:CheckBox = itemView.findViewById(R.id.cb_sel)
+        var tvName: TextView = itemView.findViewById(R.id.tv_name)
+        var tvParentName: TextView = itemView.findViewById(R.id.tv_parent_name)
+        var cbSel: CheckBox = itemView.findViewById(R.id.cb_sel)
     }
 }

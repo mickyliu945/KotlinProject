@@ -48,4 +48,23 @@ class CityPresenterImpl(activity: BaseActivity) : BasePresenterImpl(activity), C
 
         }.execute())
     }
+
+    override fun selectCity(city:City) {
+        addDisposable(object : RxAsync<Void, Void, Void>(activity) {
+            override fun doInBackground(vararg params: Void): Void? {
+                DBCore.getInstance().database?.cityDao()?.update(city)
+                return null
+            }
+
+            override fun onPostExecute(result: Void?) {
+                super.onPostExecute(result)
+                cityView?.onSelectCitySuccess()
+            }
+
+            override fun onError(t: Throwable) {
+                super.onError(t)
+                Logger.e(t, t.message)
+            }
+        }.execute())
+    }
 }

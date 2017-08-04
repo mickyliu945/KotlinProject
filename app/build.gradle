@@ -50,12 +50,9 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.5.0'
     implementation files('libs/logger.jar')
     //room
-    compile "android.arch.persistence.room:runtime:$arch_room_version"
-    annotationProcessor "android.arch.persistence.room:compiler:$arch_room_version"
     kapt "android.arch.persistence.room:compiler:$arch_room_version"
     compile "android.arch.persistence.room:runtime:$arch_room_version"
     annotationProcessor "android.arch.persistence.room:compiler:$arch_room_version"
-    compile "android.arch.persistence.room:rxjava2:$arch_room_version"
 }
 repositories {
     mavenCentral()
