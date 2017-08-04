@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">KotlinProject</string>
+
+    <string name="permission_sd">在设置-应用-%1$s-权限管理中开启存储权限，以正常使用%2$s</string>
+    <string name="go_setting">去设置</string>
+    <string name="cancel">取消</string>
+    <string name="permission_request">权限申请</string>
+    <string name="loading">加载中</string>
+</resources>
