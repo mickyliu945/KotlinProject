@@ -1,9 +1,6 @@
 package com.micky.kotlinproject.domain.db.dao
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
-import android.arch.persistence.room.Update
+import android.arch.persistence.room.*
 import com.micky.kotlinproject.domain.model.City
 import io.reactivex.Flowable
 
@@ -26,7 +23,7 @@ interface CityDao {
     fun update(city:City)
 
     @Update
-    fun updateAsync(city:City):Flowable<City>
+    fun updateAsysssnc(city:City):Flowable<Any>
 
     @Query("SELECT * FROM city where id = :id")
     fun query(id:String):City

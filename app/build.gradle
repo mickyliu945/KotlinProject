@@ -4,13 +4,13 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion "25.0.2"
 
     defaultConfig {
         applicationId "com.micky.kotlinproject"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -53,6 +53,9 @@ dependencies {
     compile "android.arch.persistence.room:runtime:$arch_room_version"
     annotationProcessor "android.arch.persistence.room:compiler:$arch_room_version"
     kapt "android.arch.persistence.room:compiler:$arch_room_version"
+    compile "android.arch.persistence.room:runtime:$arch_room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$arch_room_version"
+    compile "android.arch.persistence.room:rxjava2:$arch_room_version"
 }
 repositories {
     mavenCentral()

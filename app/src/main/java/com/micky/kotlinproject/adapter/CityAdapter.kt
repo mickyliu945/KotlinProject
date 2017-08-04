@@ -26,8 +26,8 @@ class CityAdapter : BaseRVAdapter<City, CityAdapter.ItemViewHolder>() {
         holder.cbSel.isChecked = city?.selected ?: false
         holder.itemView.setOnClickListener {
             city?.selected = !(city != null && city?.selected)
-            DBCore.getInstance().database.cityDao().updateAsync(city!!)
-                    .applyCommonSchedulers().subscribe({notifyDataSetChanged()})
+//            DBCore.getInstance().database.cityDao().updateAsync(city!!)
+//                    .applyCommonSchedulers().subscribe({notifyDataSetChanged()})
         }
     }
 
@@ -39,8 +39,8 @@ class CityAdapter : BaseRVAdapter<City, CityAdapter.ItemViewHolder>() {
     }
 
     inner class ItemViewHolder(itemView: View) : BaseItemViewHolder(itemView) {
-        var tvName = itemView.findViewById(R.id.tv_name) as TextView
-        var tvParentName = itemView.findViewById(R.id.tv_parent_name) as TextView
-        var cbSel = itemView.findViewById(R.id.cb_sel) as CheckBox
+        var tvName:TextView = itemView.findViewById(R.id.tv_name)
+        var tvParentName:TextView = itemView.findViewById(R.id.tv_parent_name)
+        var cbSel:CheckBox = itemView.findViewById(R.id.cb_sel)
     }
 }
