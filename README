@@ -2,4 +2,4 @@ Android项目模板，Kotlin实现，集成如下框架
 Retrofit v2.x
 RxJava v2.x
 RxAndroid v2.x
-Room alpha
+Room alpha (SQLCipher暂未支持Room）
