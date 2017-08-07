@@ -1,4 +1,5 @@
-Android项目模板，Kotlin实现，集成如下框架
+Android项目模板，Kotlin实现MVP模式，集成如下框架
+====
 Retrofit v2.x
 RxJava v2.x
 RxAndroid v2.x
