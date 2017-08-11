@@ -14,9 +14,7 @@ class DBCore private constructor() {
         //数据库版本号
         const val DB_VERSION = 2
 
-        fun getInstance(): DBCore {
-            return DBCoreHolder.dbCore
-        }
+        fun getInstance() = DBCoreHolder.dbCore
     }
 
     private object DBCoreHolder {
